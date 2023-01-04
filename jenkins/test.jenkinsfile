@@ -4,6 +4,7 @@ pipeline {
         docker {
             label 'Jenkins-Agent-AL2-X64-C54xlarge-Docker-Host'
             image 'opensearchstaging/ci-runner:release-centos7-clients-v1'
+            args '-e JAVA_HOME=/opt/java/openjdk-11'
             alwaysPull true
         }
     }
@@ -28,6 +29,7 @@ pipeline {
                                     }
                                 }
                             echo "Downloading artifacts from $assetUrl"
+                            sh "java --version"
                             sh "curl -J -L -H 'Accept: application/octet-stream' -H 'Authorization: Bearer ${GITHUB_TOKEN}' ${assetUrl} -o artifacts.tar.gz && tar -xvf artifacts.tar.gz"
                         }
                 }
