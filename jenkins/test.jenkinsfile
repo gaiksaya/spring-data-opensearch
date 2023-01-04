@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                         withCredentials([usernamePassword(credentialsId: 'jenkins-github-bot-token', usernameVariable: 'GITHUB_USER', passwordVariable: 'GITHUB_TOKEN')]) {
-                            sh "java --version && echo \$JAVA_HOME"
+                            sh "echo \$JAVA_HOME"
                         }
                 }
             }
