@@ -21,7 +21,7 @@ pipeline {
                             )
                             String assetUrl = null
                             def parsedJson = readJSON text: assets
-                            def assetName = args.downloadReleaseAssetName ?: 'artifacts.tar.gz'
+                            def assetName = 'artifacts.tar.gz'
                             parsedJson.each { item ->
                                 if(item.name == assetName) {
                                     assetUrl = item.url
