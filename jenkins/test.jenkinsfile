@@ -29,7 +29,7 @@ pipeline {
                                     }
                                 }
                             echo "Downloading artifacts from $assetUrl"
-                            sh "java --version"
+                            sh "java --version && echo $JAVA_HOME"
                             sh "curl -J -L -H 'Accept: application/octet-stream' -H 'Authorization: Bearer ${GITHUB_TOKEN}' ${assetUrl} -o artifacts.tar.gz && tar -xvf artifacts.tar.gz"
                         }
                 }
