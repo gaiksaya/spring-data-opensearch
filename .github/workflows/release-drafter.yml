@@ -21,7 +21,7 @@ jobs:
           secret: ${{ github.TOKEN }}
           approvers: ${{ steps.approvers.outputs.approvers }}
           minimum-approvals: 1
-          issue-title: "Release spring-data-opensearch ${{ env.version }}"
+          issue-title: "Release spring-data-opensearch ${{ steps.approvers.outputs.version }}"
           # exclude-workflow-initiator-as-approver: true
       - name: Set up JDK 17
         uses: actions/setup-java@v3
